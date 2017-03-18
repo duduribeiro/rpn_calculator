@@ -12,7 +12,7 @@ module Calculator
       engine    = Engine.load_engine(options[:engine]).new
       interface = Interface.load_interface(options[:interface]).new(engine: engine)
 
-      interface.start
+      interface.start(ARGV)
     end
 
     private

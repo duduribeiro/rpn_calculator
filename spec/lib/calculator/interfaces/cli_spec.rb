@@ -6,7 +6,7 @@ module Calculator
     let(:cli)    { described_class.new(engine: engine) }
 
     describe '#start' do
-      subject { cli.start }
+      subject { cli.start(nil) }
 
       it 'reads the input' do
         allow($stdin).to receive(:gets).and_return('1', '2', '+', nil)
