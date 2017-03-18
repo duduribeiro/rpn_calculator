@@ -36,6 +36,14 @@ module Calculator
           end
         end
       end
+
+      context 'help menu' do
+        it 'exits the flow' do
+          runner = Calculator::Runner.new(['-h'])
+
+          expect { runner.execute }.to raise_error SystemExit
+        end
+      end
     end
   end
 end
