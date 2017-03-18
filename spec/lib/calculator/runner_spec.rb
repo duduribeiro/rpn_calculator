@@ -25,6 +25,16 @@ module Calculator
             runner.execute
           end
         end
+
+        context 'specifying a file interface' do
+          it 'sets interface to file' do
+            runner = Calculator::Runner.new(['-e', 'rpn', '-i', 'file'])
+
+            expect(Interface).to receive(:load_interface).with(:file)
+
+            runner.execute
+          end
+        end
       end
     end
   end
