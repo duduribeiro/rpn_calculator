@@ -10,7 +10,10 @@ module Engines
         nil
       elsif input.operator?
         raise Errors::InvalidCalculation, 'Not enough values to calculate' if @stack.size < 2
-        calculate(input.operator_key)
+        calculate(input.operator_key).tap do |value|
+          @stack << value
+          return value
+        end
       else
         raise Errors::InvalidOperator
       end
