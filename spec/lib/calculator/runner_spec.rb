@@ -10,7 +10,7 @@ module Calculator
           it 'sets engine to RPN' do
             runner = Calculator::Runner.new(['-e', 'rpn'])
 
-            expect(Engine).to receive(:load_engine).with(:rpn)
+            expect(Engine).to receive(:load_engine).with(:rpn).and_call_original
 
             runner.execute
           end
