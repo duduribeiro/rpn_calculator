@@ -24,7 +24,7 @@ module Calculator
           options[:engine] = engine
         end
 
-        opt.on('-i', '--interface INTERFACE', 'Interface input to use (cli (default), file)', [:cli, :file] ) do |input|
+        opt.on('-i', '--interface INTERFACE', 'Interface input to use (cli (default), file)', [:cli, :file]) do |input|
           options[:interface] = input
         end
 
