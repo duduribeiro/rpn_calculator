@@ -23,15 +23,23 @@ module Calculator
         end
       end
 
-      context 'with an operator' do
+      context 'with a valid operator' do
         context 'and the stack is without the necessary size to calculate' do
           before { engine.process_input(Input.new('1')) }
 
-          let(:input) { Input.new('an_operator') }
+          let(:input) { Input.new('+') }
 
-          it 'raises an invlaid calculation error' do
+          it 'raises an invalid calculation error' do
             expect { subject }.to raise_error(Errors::InvalidCalculation, "Not enough values to calculate")
           end
+        end
+      end
+
+      context 'with an invalid operator' do
+        let(:input) { Input.new('$') }
+
+        it 'raises an invalid operator error' do
+          expect { subject }.to raise_error(Errors::InvalidOperator)
         end
       end
     end
