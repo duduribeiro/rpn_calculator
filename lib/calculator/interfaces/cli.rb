@@ -1,4 +1,4 @@
 module Interfaces
-  class CLI
+  class CLI < BaseInterface
   end
 end
