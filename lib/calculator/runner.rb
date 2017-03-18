@@ -9,8 +9,10 @@ module Calculator
     def execute
       options = parse_options(@args)
 
-      engine    = Engine.load_engine(options[:engine])
-      interface = Interface.load_interface(options[:interface])
+      engine    = Engine.load_engine(options[:engine]).new
+      interface = Interface.load_interface(options[:interface]).new(engine: engine)
+
+      interface.start
     end
 
     private
