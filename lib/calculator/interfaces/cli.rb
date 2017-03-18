@@ -1,5 +1,13 @@
+require 'calculator/interfaces/custom_operations/cli/quit'
+
 module Interfaces
   class CLI < BaseInterface
+    def custom_operations
+      {
+        'q' => Interfaces::CustomOperations::CLI::Quit
+      }.freeze
+    end
+
     def start
       puts 'Starting calculator.'
       while stdin = $stdin.gets&.chomp
