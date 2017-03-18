@@ -4,6 +4,7 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
+    - 'spec/**/*'
 
 Style/AlignParameters:
   EnforcedStyle: with_fixed_indentation
