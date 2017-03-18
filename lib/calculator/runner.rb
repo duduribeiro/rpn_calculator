@@ -9,13 +9,14 @@ module Calculator
     def execute
       options = parse_options(@args)
 
-      engine  = Engine.load_engine(options[:engine])
+      engine    = Engine.load_engine(options[:engine])
+      interface = Interface.load_interface(options[:interface])
     end
 
     private
 
     def parse_options(args)
-      options = { input: :cli } # Default parameters
+      options = { interface: :cli } # Default parameters
       opt_parser = OptionParser.new do |opt|
         opt.banner = 'Usage: opt_parser COMMAND [OPTIONS]'
 
@@ -23,8 +24,8 @@ module Calculator
           options[:engine] = engine
         end
 
-        opt.on('-i', '--input INPUT', 'Input method to use (cli (default), file)', [:cli, :file] ) do |input|
-          options[:input] = input
+        opt.on('-i', '--interface INTERFACE', 'Interface input to use (cli (default), file)', [:cli, :file] ) do |input|
+          options[:interface] = input
         end
 
         opt.on('-h', '--help', 'help') do
