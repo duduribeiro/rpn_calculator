@@ -2,6 +2,8 @@ require 'spec_helper'
 
 module Calculator
   RSpec.describe Calculator::Runner do
+    before(:each) { allow($stdin).to receive(:gets).and_return(nil) }
+
     describe '.start' do
       context 'engines' do
         context 'specifying rpn' do
@@ -16,11 +18,13 @@ module Calculator
       end
 
       context 'interfaces' do
+        let(:interface_double) { double(:interface) }
+
         context 'when it is not informed' do
           it 'sets interface to the default one (cli)' do
             runner = Calculator::Runner.new(['-e', 'rpn'])
 
-            expect(Interface).to receive(:load_interface).with(:cli)
+            expect(Interface).to receive(:load_interface).with(:cli).and_call_original
 
             runner.execute
           end
@@ -30,7 +34,7 @@ module Calculator
           it 'sets interface to file' do
             runner = Calculator::Runner.new(['-e', 'rpn', '-i', 'file'])
 
-            expect(Interface).to receive(:load_interface).with(:file)
+            expect(Interface).to receive(:load_interface).with(:file).and_call_original
 
             runner.execute
           end
