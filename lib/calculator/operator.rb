@@ -1,8 +1,10 @@
 require 'calculator/operators/sum'
+require 'calculator/operators/product'
 
 class Operator
   OPERATORS = {
-    '+' => Operators::Sum
+    '+' => Operators::Sum,
+    '*' => Operators::Product
   }.freeze
 
   def self.by_key(key)

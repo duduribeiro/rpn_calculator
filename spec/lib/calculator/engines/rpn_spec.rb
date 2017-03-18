@@ -17,10 +17,6 @@ module Calculator
 
           expect(engine.instance_variable_get(:@stack).first).to eq(123)
         end
-
-        it 'returns the value' do
-          expect(subject).to eq(123)
-        end
       end
 
       context 'with a valid operator' do
