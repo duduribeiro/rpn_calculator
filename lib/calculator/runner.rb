@@ -18,7 +18,7 @@ module Calculator
     private
 
     def parse_options(args)
-      options = { interface: :cli } # Default parameters
+      options = { engine: :rpn, interface: :cli } # Default parameters
       opt_parser = OptionParser.new do |opt|
         opt.banner = 'Usage: opt_parser COMMAND [OPTIONS]'
 
