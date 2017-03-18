@@ -16,7 +16,7 @@ class Input
   end
 
   def value?
-    /\A\d+\z/.match(@input)
+    /\A[-+]?[0-9]+\z/.match(@input)
   end
 
   def to_s
