@@ -1,10 +1,14 @@
 require 'calculator/operators/sum'
+require 'calculator/operators/subtraction'
 require 'calculator/operators/product'
+require 'calculator/operators/division'
 
 class Operator
   OPERATORS = {
     '+' => Operators::Sum,
-    '*' => Operators::Product
+    '-' => Operators::Subtraction,
+    '*' => Operators::Product,
+    '/' => Operators::Division
   }.freeze
 
   def self.by_key(key)
