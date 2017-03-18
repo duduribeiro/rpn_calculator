@@ -5,11 +5,18 @@ To use the Calculator, follow the instructions
 ```
     git clone git@github.com:duduribeiro/rpn_calculator.git
     cd rpn_calculator
-    # run the calculator
+    # run the calculator (default engine = rpn, default interface = cli)
     bin/calculator
     # run the tests
     rspec .
 ```
+
+To use the file interface
+```
+bin/calculator -i file test.txt
+```
+
+
 ## The code
 with a main ruby in a bin and a lib folder, it's easy to move the code to a future gem project.
 The main ruby will only call the Runner class (Responsible to inject the Engine to the Interface and start the calculation via interface).
