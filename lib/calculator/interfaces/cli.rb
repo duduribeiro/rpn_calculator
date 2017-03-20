@@ -14,8 +14,7 @@ module Interfaces
         begin
           input = Input.new(stdin)
           result = process_input(input)
-          puts "> #{input.to_s}"
-          puts "> #{result}" if result
+          puts "> #{result}"
         rescue Errors::InvalidCalculation => e
           puts "💥 invalid calculation. #{e.message}"
         rescue Errors::InvalidOperator

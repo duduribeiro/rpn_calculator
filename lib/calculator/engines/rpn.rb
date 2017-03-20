@@ -7,7 +7,7 @@ module Engines
     def process_input(input)
       if input.value?
         @stack << input.value
-        nil
+        input.value
       elsif input.operator?
         raise Errors::InvalidCalculation, 'Not enough values to calculate' if @stack.size < 2
         calculate(input.operator_key).tap do |value|
