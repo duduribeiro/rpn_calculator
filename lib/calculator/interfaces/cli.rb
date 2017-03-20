@@ -11,15 +11,19 @@ module Interfaces
     def start(_param)
       puts 'Starting calculator.'
       while stdin = $stdin.gets&.chomp
-        begin
-          input = Input.new(stdin)
-          result = process_input(input)
-          puts "> #{result}"
-        rescue Errors::InvalidCalculation => e
-          puts "💥 invalid calculation. #{e.message}"
-        rescue Errors::InvalidOperator
-          puts "> This isn't a valid operator 😔"
-        end
+          inputs = stdin.split(' ')
+          inputs.each do |input|
+            begin
+              # require 'pry' ; binding.pry
+              input = Input.new(input)
+              result = process_input(input)
+              puts "> #{result}"
+            rescue Errors::InvalidCalculation => e
+              puts "💥 invalid calculation. #{e.message}"
+            rescue Errors::InvalidOperator
+              puts "> This isn't a valid operator 😔"
+            end
+          end
       end
     end
   end
